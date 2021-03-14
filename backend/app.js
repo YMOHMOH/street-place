@@ -6,6 +6,7 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path = require("path");
+const cors = require("cors");
 
 const errorMiddleware = require("./middlewares/errors");
 
@@ -16,6 +17,7 @@ if (process.NODE_ENV !== "PRODUCTION")
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(cors());
 app.use(fileUpload());
 
 //Import all routes
