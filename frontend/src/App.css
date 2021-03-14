@@ -27,10 +27,10 @@ body {
 }
 
 nav {
-  /* background-color: #232f3e; */
+  background-color: #232f3e;
   /* padding: 1rem 1rem; */
-  background-color: white;
-  border-bottom: 1px solid #ced4da;
+  /* background-color: white;
+  border-bottom: 1px solid #ced4da; */
 }
 
 #search_btn {
