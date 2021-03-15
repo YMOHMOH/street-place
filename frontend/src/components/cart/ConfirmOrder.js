@@ -72,6 +72,9 @@ function ConfirmOrder({ history }) {
 
                     <div className="col-5 col-lg-6">
                       <Link to={`/product/${item.product}`}>{item.name}</Link>
+                      <p id="card_item_size">
+                        {item.size === "US" ? "Taille unique" : item.size}
+                      </p>
                     </div>
 
                     <div className="col-4 col-lg-4 mt-4 mt-lg-0">

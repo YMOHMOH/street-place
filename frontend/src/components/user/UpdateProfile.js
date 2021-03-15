@@ -31,7 +31,11 @@ function UpdateProfile({ history }) {
     if (user) {
       setName(user.name);
       setEmail(user.email);
-      setAvatarPreview(user.avatar.url);
+      if (user.avatar) {
+        setAvatarPreview(user.avatar.url);
+      } else {
+        setAvatarPreview("/images/default_avatar.jpg");
+      }
     }
 
     if (error) {
@@ -40,7 +44,7 @@ function UpdateProfile({ history }) {
     }
 
     if (isUpdated) {
-      alert.success("user updated successfully");
+      alert.success("Utilisateur mis à jour avec succès");
       dispatch(loadUser());
 
       history.push("/me");

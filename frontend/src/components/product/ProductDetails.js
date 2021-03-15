@@ -22,7 +22,7 @@ function ProductDetails({ match }) {
   const [comment, setComment] = useState("");
   const [size, setSize] = useState("M");
 
-  const sizes = ["S", "M", "L", "X", "2XL"];
+  const sizes = ["S", "M", "L", "XL", "XXL"];
 
   const dispatch = useDispatch();
   const alert = useAlert();
@@ -39,8 +39,6 @@ function ProductDetails({ match }) {
   useEffect(() => {
     dispatch(getProductDetails(match.params.id));
 
-    console.log(product);
-
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
@@ -52,22 +50,29 @@ function ProductDetails({ match }) {
     }
 
     if (success) {
-      alert.success("Review posted successfully");
+      alert.success("Votre commentaire a été posté avec succés");
       dispatch({ type: NEW_REVIEW_RESET });
     }
-  }, [dispatch, alert, error, match.params.id, reviewError, success]);
+  }, [dispatch, alert, error, match.params.id, reviewError, success, size]);
 
-  const addToCart = () => {
-    dispatch(addItemToCart(match.params.id, quantity, size));
-    alert.success("Item added to cart");
+  const addToCart = (currentSize) => {
+    dispatch(addItemToCart(match.params.id, quantity, currentSize));
+    alert.success("Produit ajouté au panier");
   };
 
   const increaseQty = () => {
     const count = document.querySelector(".count");
 
-    if (count.valueAsNumber >= product.stock) {
-      return;
+    if (!product.withSize) {
+      if (count.valueAsNumber >= product.stock["US"]) {
+        return;
+      }
+    } else {
+      if (count.valueAsNumber >= product.stock[size]) {
+        return;
+      }
     }
+
     const qty = count.valueAsNumber + 1;
     setQuantity(qty);
   };
@@ -78,6 +83,7 @@ function ProductDetails({ match }) {
     if (count.valueAsNumber <= 1) {
       return;
     }
+
     const qty = count.valueAsNumber - 1;
     setQuantity(qty);
   };
@@ -186,8 +192,20 @@ function ProductDetails({ match }) {
                 type="button"
                 id="cart_btn"
                 className="btn btn-primary d-inline ml-4"
-                disabled={product.stock === 0}
-                onClick={addToCart}
+                disabled={
+                  product.stock && !product.withSize
+                    ? product.stock["US"] === 0
+                    : product.stock && product.stock[size] === 0
+                }
+                onClick={() => {
+                  if (product.stock) {
+                    if (!product.withSize) {
+                      addToCart("US");
+                    } else {
+                      addToCart(size);
+                    }
+                  }
+                }}
               >
                 Ajouter au panier
               </button>
@@ -217,10 +235,22 @@ function ProductDetails({ match }) {
               <p>
                 <span
                   id="stock_status"
-                  className={product.stock > 0 ? "greenColor" : "redColor"}
+                  className={
+                    product.stock && !product.withSize
+                      ? product.stock["US"] > 0
+                        ? "greenColor"
+                        : "redColor"
+                      : product.stock && product.stock[size] > 0
+                      ? "greenColor"
+                      : "redColor"
+                  }
                 >
-                  {product.stock > 0
-                    ? `En Stock : ${product.stock}`
+                  {product.stock && !product.withSize
+                    ? product.stock["US"] > 0
+                      ? `En Stock : ${product.stock["US"]}`
+                      : "Indisponible"
+                    : product.stock && product.stock[size] > 0
+                    ? `En Stock : ${product.stock[size]}`
                     : "Indisponible"}
                 </span>
               </p>

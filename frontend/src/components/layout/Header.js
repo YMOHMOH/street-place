@@ -61,7 +61,11 @@ function Header() {
               >
                 <figure className="avatar avatar-nav">
                   <img
-                    src={user.avatar && user.avatar.url}
+                    src={
+                      user.avatar
+                        ? user.avatar.url
+                        : "/images/default_avatar.jpg"
+                    }
                     alt={user && user.name}
                     className="rounded-circle"
                   />

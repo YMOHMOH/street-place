@@ -85,13 +85,13 @@ function Home({ match }) {
             <div className="row">
               {keyword ? (
                 <Fragment>
-                  <div className="col-6 col-md-3 mt-5 mb-5">
+                  {/* <div className="col-6 col-md-3 mt-5 mb-5">
                     <div className="px-5">
                       <Range
-                        marks={{ 1: `1€`, 1000: `1000€` }}
+                        marks={{ 1: `1€`, 150: `150€` }}
                         min={1}
-                        max={1000}
-                        defaultValue={[1, 1000]}
+                        max={150}
+                        defaultValue={[1, 150]}
                         tipFormatter={(value) => `${value}€`}
                         tipProps={{ placement: "top", visible: true }}
                         value={price}
@@ -147,7 +147,7 @@ function Home({ match }) {
                         </ul>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="col-6 col-md-9">
                     <div className="row">
                       {products &&

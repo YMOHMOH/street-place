@@ -11,15 +11,15 @@ export const cartReducer = (
   switch (action.type) {
     case ADD_TO_CART:
       const item = action.payload;
-      const isItemExist = state.cartItems.find(
-        (i) => i.product === item.product
-      );
+      const isItemExist = state.cartItems.find((i) => {
+        return i.product === item.product && i.size === item.size;
+      });
 
       if (isItemExist) {
         return {
           ...state,
           cartItems: state.cartItems.map((i) =>
-            i.product === isItemExist.product ? item : i
+            i.product === isItemExist.product && i.size === item.size ? item : i
           ),
         };
       } else {
@@ -31,7 +31,15 @@ export const cartReducer = (
     case REMOVE_ITEM_CART:
       return {
         ...state,
-        cartItems: state.cartItems.filter((i) => i.product !== action.payload),
+        cartItems: state.cartItems.filter((i) => {
+          if (
+            i.product === action.payload.product &&
+            i.size === action.payload.size
+          ) {
+            return false;
+          }
+          return true;
+        }),
       };
 
     case SAVE_SHIPPING_INFO:

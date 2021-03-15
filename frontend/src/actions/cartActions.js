@@ -19,17 +19,18 @@ export const addItemToCart = (id, quantity, size) => async (
       name: data.product.name,
       price: data.product.price,
       image: data.product.images[0].url,
-      stock: data.product.stock,
+      size: size,
+      stock: data.product.stock[size],
       quantity,
     },
   });
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };
 
-export const removeItemFromCart = (id) => async (dispatch, getState) => {
+export const removeItemFromCart = (id, size) => async (dispatch, getState) => {
   dispatch({
     type: REMOVE_ITEM_CART,
-    payload: id,
+    payload: { product: id, size: size },
   });
   localStorage.setItem("cartItems", JSON.stringify(getState().cart.cartItems));
 };

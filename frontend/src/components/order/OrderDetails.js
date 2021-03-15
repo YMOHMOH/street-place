@@ -115,6 +115,9 @@ function OrderDetails({ match }) {
                           <Link to={`/product/${item.product}`}>
                             {item.name}
                           </Link>
+                          <p id="card_item_size">
+                            {item.size === "US" ? "Taille unique" : item.size}
+                          </p>
                         </div>
 
                         <div className="col-4 col-lg-2 mt-4 mt-lg-0">

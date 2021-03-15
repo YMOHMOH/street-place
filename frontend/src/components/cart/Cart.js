@@ -12,26 +12,27 @@ function Cart({ history }) {
 
   const { cartItems } = useSelector((state) => state.cart);
 
-  const removeCartItemHandler = (id) => {
-    dispatch(removeItemFromCart(id));
+  const removeCartItemHandler = (id, size) => {
+    dispatch(removeItemFromCart(id, size));
   };
 
-  const increaseQty = (id, quantity, stock) => {
+  const increaseQty = (id, quantity, size, stock) => {
+    console.log(id, quantity, size, stock);
     const newQty = quantity + 1;
 
     if (newQty > stock) {
       return;
     }
-    dispatch(addItemToCart(id, newQty));
+    dispatch(addItemToCart(id, newQty, size));
   };
 
-  const decreaseQty = (id, quantity) => {
+  const decreaseQty = (id, quantity, size) => {
     const newQty = quantity - 1;
 
     if (newQty <= 0) {
       return;
     }
-    dispatch(addItemToCart(id, newQty));
+    dispatch(addItemToCart(id, newQty, size));
   };
 
   const subTotalHandler = () => {
@@ -69,11 +70,11 @@ function Cart({ history }) {
 
           <div className="row d-flex justify-content-between">
             <div className="col-12 col-lg-8">
-              {cartItems.map((item) => {
+              {cartItems.map((item, index) => {
                 return (
                   <Fragment>
                     <hr />
-                    <div className="cart-item" key={item.product}>
+                    <div className="cart-item" key={index}>
                       <div className="row">
                         <div className="col-4 col-lg-3">
                           <img
@@ -88,6 +89,9 @@ function Cart({ history }) {
                           <Link to={`/product/${item.product}`}>
                             {item.name}
                           </Link>
+                          <p id="card_item_size">
+                            {item.size === "US" ? "Taille unique" : item.size}
+                          </p>
                         </div>
 
                         <div className="col-4 col-lg-2 mt-4 mt-lg-0">
@@ -99,7 +103,11 @@ function Cart({ history }) {
                             <span
                               className="btn btn-danger minus"
                               onClick={() =>
-                                decreaseQty(item.product, item.quantity)
+                                decreaseQty(
+                                  item.product,
+                                  item.quantity,
+                                  item.size
+                                )
                               }
                             >
                               -
@@ -117,6 +125,7 @@ function Cart({ history }) {
                                 increaseQty(
                                   item.product,
                                   item.quantity,
+                                  item.size,
                                   item.stock
                                 )
                               }
@@ -130,7 +139,9 @@ function Cart({ history }) {
                           <i
                             id="delete_cart_item"
                             className="fa fa-trash btn btn-danger"
-                            onClick={() => removeCartItemHandler(item.product)}
+                            onClick={() =>
+                              removeCartItemHandler(item.product, item.size)
+                            }
                           ></i>
                         </div>
                       </div>

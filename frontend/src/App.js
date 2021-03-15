@@ -51,6 +51,26 @@ import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { userReducer } from "./reducers/userReducers";
 
+import { library } from "@fortawesome/fontawesome-svg-core";
+import {
+  faMapMarker,
+  faPhone,
+  faEnvelope,
+  faWindowClose,
+  faMinus,
+  faPlus,
+  faStar,
+} from "@fortawesome/free-solid-svg-icons";
+library.add(
+  faMapMarker,
+  faPhone,
+  faEnvelope,
+  faWindowClose,
+  faMinus,
+  faPlus,
+  faStar
+);
+
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
@@ -153,7 +173,8 @@ function App() {
           component={ProductReviews}
           exact
         />
-        {!loading && (!isAuthenticated || user.role !== "admin") && <Footer />}
+        <Footer />
+        {/* {!loading && (!isAuthenticated || user.role !== "admin") && <Footer />} */}
       </div>
     </Router>
   );

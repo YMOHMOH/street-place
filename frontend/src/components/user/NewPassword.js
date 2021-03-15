@@ -24,7 +24,7 @@ function NewPassword({ history, match }) {
     }
 
     if (success) {
-      alert.success("Password updated  successfully");
+      alert.success("Mot de passe mis à jour avec succès");
       history.push("/login");
     }
   }, [dispatch, error, alert, success, history]);

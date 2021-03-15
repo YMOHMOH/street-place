@@ -25,7 +25,7 @@ function UpdatePassword({ history }) {
     }
 
     if (isUpdated) {
-      alert.success("Password updated successfully");
+      alert.success("Mot de passe mis à jour avec succès");
 
       history.push("/me");
       dispatch({ type: UPDATE_PASSWORD_RESET });
