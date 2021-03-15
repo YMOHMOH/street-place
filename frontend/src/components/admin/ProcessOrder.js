@@ -138,8 +138,8 @@ function ProcessOrder({ match }) {
                               <img
                                 src={item.image}
                                 alt={item.name}
-                                height="45"
-                                width="65"
+                                height="65"
+                                width="55"
                               />
                             </div>
 

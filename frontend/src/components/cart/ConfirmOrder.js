@@ -65,8 +65,8 @@ function ConfirmOrder({ history }) {
                       <img
                         src={item.image}
                         alt="Laptop"
-                        height="45"
-                        width="65"
+                        height="65"
+                        width="55"
                       />
                     </div>
 

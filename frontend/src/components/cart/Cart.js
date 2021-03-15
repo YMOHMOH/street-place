@@ -80,8 +80,8 @@ function Cart({ history }) {
                           <img
                             src={item.image}
                             alt="Laptop"
-                            height="90"
-                            width="115"
+                            height="115"
+                            width="90"
                           />
                         </div>
 
