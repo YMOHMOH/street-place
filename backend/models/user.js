@@ -23,8 +23,8 @@ const userSchema = new mongoose.Schema({
     select: false,
   },
   avatar: {
-    public_id: { type: String, required: true },
-    url: { type: String, required: true },
+    public_id: { type: String },
+    url: { type: String },
   },
   role: { type: String, default: "user" },
   createdAt: { type: Date, default: Date.now },

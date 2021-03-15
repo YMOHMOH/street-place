@@ -37,10 +37,42 @@ const productSchema = new mongoose.Schema({
   },
   seller: { type: String, required: [true, "Please enter product seller"] },
   stock: {
-    type: Number,
-    required: [true, "Please enter product stock"],
-    maxLength: [5, "Product name cannot exceed 5 characters"],
-    default: 0,
+    S: {
+      type: Number,
+      required: [true, "Please enter product stock"],
+      maxLength: [5, "Product stock cannot exceed 5 characters"],
+      default: 0,
+    },
+    M: {
+      type: Number,
+      required: [true, "Please enter product stock"],
+      maxLength: [5, "Product stock cannot exceed 5 characters"],
+      default: 0,
+    },
+    L: {
+      type: Number,
+      required: [true, "Please enter product stock"],
+      maxLength: [5, "Product stock cannot exceed 5 characters"],
+      default: 0,
+    },
+    XL: {
+      type: Number,
+      required: [true, "Please enter product stock"],
+      maxLength: [5, "Product stock cannot exceed 5 characters"],
+      default: 0,
+    },
+    XXL: {
+      type: Number,
+      required: [true, "Please enter product stock"],
+      maxLength: [5, "Product stock cannot exceed 5 characters"],
+      default: 0,
+    },
+    US: {
+      type: Number,
+      required: [true, "Please enter product stock"],
+      maxLength: [5, "Product stock cannot exceed 5 characters"],
+      default: 0,
+    },
   },
   numOfReviews: {
     type: Number,
