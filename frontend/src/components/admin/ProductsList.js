@@ -81,7 +81,8 @@ function ProductsList({ history }) {
         id: product._id,
         name: product.name,
         price: `${product.price} €`,
-        stock: product.stock,
+        // stock: product.stock,
+        stock: 0,
         actions: (
           <Fragment>
             <Link
