@@ -106,7 +106,9 @@ function App() {
           <Route path="/login">
             <Login getStripeApiKey={getStripeApiKey} />
           </Route>
-          <Route path="/register" component={Register} />
+          <Route path="/register">
+            <Register getStripeApiKey={getStripeApiKey} />
+          </Route>
           <Route path="/password/forgot" component={ForgotPassword} exact />
           <Route path="/password/reset/:token" component={NewPassword} exact />
           <ProtectedRoute path="/me" component={Profile} exact />

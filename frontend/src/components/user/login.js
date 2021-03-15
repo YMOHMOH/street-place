@@ -1,5 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory, useLocation } from "react-router-dom";
 /* import "./style.css"; */
 
 import Loader from "../layout/Loader";
@@ -9,7 +9,10 @@ import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { login, clearErrors } from "../../actions/userActions";
 
-function Login({ history, location, getStripeApiKey }) {
+function Login({ getStripeApiKey }) {
+  let history = useHistory();
+  let location = useLocation();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -25,7 +28,6 @@ function Login({ history, location, getStripeApiKey }) {
 
   useEffect(() => {
     if (isAuthenticated) {
-      getStripeApiKey();
       history.push(redirect);
     }
 

@@ -1,4 +1,5 @@
 import React, { Fragment, useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 /* import "./style.css"; */
 
 import Metadata from "../layout/MetaData";
@@ -7,7 +8,9 @@ import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { register, clearErrors } from "../../actions/userActions";
 
-function Register({ history, getStripeApiKey }) {
+function Register({ getStripeApiKey }) {
+  let history = useHistory();
+
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -31,7 +34,6 @@ function Register({ history, getStripeApiKey }) {
 
   useEffect(() => {
     if (isAuthenticated) {
-      getStripeApiKey();
       history.push("/");
     }
 
