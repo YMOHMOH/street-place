@@ -43,11 +43,13 @@ function Register({ history }) {
   const submitHandler = (e) => {
     e.preventDefault();
 
+    const empty = "";
+
     const formData = new FormData();
     formData.set("name", name);
     formData.set("email", email);
     formData.set("password", password);
-    // formData.set("avatar", avatar);
+    formData.set("avatar", empty);
 
     dispatch(register(formData));
   };
