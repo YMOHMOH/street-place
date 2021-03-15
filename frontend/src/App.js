@@ -77,14 +77,13 @@ function App() {
   useEffect(() => {
     store.dispatch(loadUser());
 
-    async function getStripeApiKey() {
-      const { data } = await axios.get("/api/v1/stripeapi");
-      setStripeApiKey(data.stripeApiKey);
-    }
-
     getStripeApiKey();
   }, []);
   const { user, loading, isAuthenticated } = useSelector((state) => state.auth);
+  async function getStripeApiKey() {
+    const { data } = await axios.get("/api/v1/stripeapi");
+    setStripeApiKey(data.stripeApiKey);
+  }
   return (
     <Router>
       <div className="App">
@@ -104,7 +103,9 @@ function App() {
             </Elements>
           )}
 
-          <Route path="/login" component={Login} />
+          <Route path="/login">
+            <Login getStripeApiKey={getStripeApiKey} />
+          </Route>
           <Route path="/register" component={Register} />
           <Route path="/password/forgot" component={ForgotPassword} exact />
           <Route path="/password/reset/:token" component={NewPassword} exact />

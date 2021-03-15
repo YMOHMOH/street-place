@@ -9,7 +9,7 @@ import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { login, clearErrors } from "../../actions/userActions";
 
-function Login({ history, location }) {
+function Login({ history, location, getStripeApiKey }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -25,6 +25,7 @@ function Login({ history, location }) {
 
   useEffect(() => {
     if (isAuthenticated) {
+      getStripeApiKey();
       history.push(redirect);
     }
 

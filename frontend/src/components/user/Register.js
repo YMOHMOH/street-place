@@ -7,7 +7,7 @@ import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { register, clearErrors } from "../../actions/userActions";
 
-function Register({ history }) {
+function Register({ history, getStripeApiKey }) {
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -31,6 +31,7 @@ function Register({ history }) {
 
   useEffect(() => {
     if (isAuthenticated) {
+      getStripeApiKey();
       history.push("/");
     }
 
