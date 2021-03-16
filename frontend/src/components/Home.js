@@ -181,10 +181,10 @@ function Home({ match }) {
                 itemsCountPerPage={resPerPage}
                 totalItemsCount={productsCount}
                 onChange={setCurrentPageNo}
-                nextPageText="Suivant"
-                prevPageText="Précédent"
-                firstPageText="Première"
-                lastPageText="Dernière"
+                // nextPageText="Suivant"
+                // prevPageText="Précédent"
+                // firstPageText="Première"
+                // lastPageText="Dernière"
                 itemClass="page-item"
                 linkClass="page-link"
               />

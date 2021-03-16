@@ -156,11 +156,13 @@ body {
 }
 
 nav {
-  background-color: #333;
-  /* background-color: #232f3e; */
-  /* padding: 1rem 1rem; */
-  /* background-color: white;
-  border-bottom: 1px solid #ced4da; */
+  position: sticky;
+  /* background-color: #333;
+  background-color: #232f3e;
+  padding: 1rem 1rem; */
+  background-color: white;
+  border-bottom: 1px solid #ced4da;
+  box-shadow: 0px 0px 30px;
 }
 
 #search_btn {
@@ -186,7 +188,8 @@ nav {
 
 #cart {
   font-size: 1rem;
-  color: white;
+  /* color: white; */
+  color: black;
 }
 
 #cart_count {

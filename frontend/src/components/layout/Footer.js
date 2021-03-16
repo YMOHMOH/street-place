@@ -16,6 +16,7 @@
 
 // export default Footer;
 import React from "react";
+import { Link, useHistory } from "react-router-dom";
 import {
   FooterWrapper,
   FooterContainer,
@@ -35,6 +36,8 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 function Footer() {
+  let history = useHistory();
+
   return (
     <>
       <InfoBarWrapper>
@@ -48,7 +51,7 @@ function Footer() {
             </InfoBarFace>
             <InfoBarFace>
               <InfoBarContent>
-                <p>Lorem ipsum dolor sit amet</p>
+                <p>En France Métropolitaine à partir de 20 euros</p>
               </InfoBarContent>
             </InfoBarFace>
           </InfoBarCard>
@@ -61,7 +64,10 @@ function Footer() {
             </InfoBarFace>
             <InfoBarFace>
               <InfoBarContent>
-                <p>Lorem ipsum dolor sit amet</p>
+                <p>
+                  14 jours pour retourner un article. Remboursement effectué dés
+                  réception
+                </p>
               </InfoBarContent>
             </InfoBarFace>
           </InfoBarCard>
@@ -74,7 +80,7 @@ function Footer() {
             </InfoBarFace>
             <InfoBarFace>
               <InfoBarContent>
-                <p>Lorem ipsum dolor sit amet</p>
+                <p></p>
               </InfoBarContent>
             </InfoBarFace>
           </InfoBarCard>
@@ -87,7 +93,7 @@ function Footer() {
             </InfoBarFace>
             <InfoBarFace>
               <InfoBarContent>
-                <p>Lorem ipsum dolor sit amet</p>
+                <p>Les commandes sont traitées sous 24h</p>
               </InfoBarContent>
             </InfoBarFace>
           </InfoBarCard>
@@ -96,11 +102,11 @@ function Footer() {
       <FooterWrapper>
         <FooterContainer>
           <AboutUs>
-            <h2>Sons Of Streetwear</h2>
+            <h2>StreetPlace</h2>
             <p>
-              La marque sons of street a été créée en 2013. Inspirée par la
-              série sons of anarchy, elle est la rencontre entre le monde des
-              bikers et le streetwear urbain d'aujourd'hui.
+              La culture urbaine s'exprime. StreetPlace a été créé afin de
+              répondre aux besoins de jeunes créateurs et ainsi mettre en avant
+              leur créativité artisitique.
             </p>
             {/* <SciFooter>
               <li>
@@ -117,10 +123,19 @@ function Footer() {
           <QuickLinks>
             <h2>Informations</h2>
             <ul>
-              <li>Livraison et Retour</li>
-              <li>Paiement sécurisé</li>
-              <li>Mentions légales</li>
-              <li>CGV</li>
+              <Link to="/shipping/info/#" style={{ textDecoration: "none" }}>
+                <li>Livraison et Retour</li>
+              </Link>
+
+              <Link to="/payment/info" style={{ textDecoration: "none" }}>
+                <li>Paiement sécurisé</li>
+              </Link>
+              <Link to="/legalNotice/info" style={{ textDecoration: "none" }}>
+                <li>Mentions légales</li>
+              </Link>
+              <Link to="/cgv/info" style={{ textDecoration: "none" }}>
+                <li>CGV</li>
+              </Link>
             </ul>
           </QuickLinks>
           <ContactFooter>
@@ -146,20 +161,14 @@ function Footer() {
                 <span>
                   <FontAwesomeIcon icon="envelope" />
                 </span>
-                <p>sonsofstreetwear@gmail.com</p>
-              </li>
-              <li>
-                <span>
-                  <FontAwesomeIcon icon="envelope" />
-                </span>
-                <p>Contact en ligne</p>
+                <p>sav@streetplace.fr</p>
               </li>
             </InfoFooter>
           </ContactFooter>
         </FooterContainer>
       </FooterWrapper>
       <CopyrightText>
-        <p>Copyright © 2013 - 2021 Sons Of Streetwear</p>
+        <p>Copyright © 2021 - StreetPlace</p>
       </CopyrightText>
     </>
   );

@@ -316,6 +316,7 @@ export const InfoBarContent = styled.div`
   p {
     margin: 0;
     padding: 0;
+    font-size: 0.75rem;
   }
 
   img {

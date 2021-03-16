@@ -1,7 +1,12 @@
 import { useEffect, useState } from "react";
 
 import "./App.css";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  useLocation,
+  withRouter,
+} from "react-router-dom";
 
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
@@ -28,6 +33,12 @@ import UpdateProfile from "./components/user/UpdateProfile";
 import UpdatePassword from "./components/user/UpdatePassword";
 import ForgotPassword from "./components/user/ForgotPassword";
 import NewPassword from "./components/user/NewPassword";
+
+// Info imports
+import ShipInfo from "./components/info/ShipInfo";
+import PaymentInfo from "./components/info/PaymentInfo";
+import CgvInfo from "./components/info/CgvInfo";
+import LegalNoticeInfo from "./components/info/LegalNoticeInfo";
 
 // Admin imports
 import Dashboard from "./components/admin/Dashboard";
@@ -71,6 +82,17 @@ library.add(
   faStar
 );
 
+function _ScrollToTop(props) {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+const ScrollToTop = withRouter(_ScrollToTop);
+
 function App() {
   const [stripeApiKey, setStripeApiKey] = useState("");
 
@@ -86,12 +108,18 @@ function App() {
   }
   return (
     <Router>
+      <ScrollToTop />
       <div className="App">
         <Header />
         <div className="container container-fluid">
           <Route path="/" component={Home} exact />
           <Route path="/search/:keyword" component={Home} />
           <Route path="/product/:id" component={ProductDetails} exact />
+
+          <Route path="/shipping/info" component={ShipInfo} exact />
+          <Route path="/payment/info" component={PaymentInfo} exact />
+          <Route path="/cgv/info" component={CgvInfo} exact />
+          <Route path="/legalNotice/info" component={LegalNoticeInfo} exact />
 
           <Route path="/cart" component={Cart} exact />
           <ProtectedRoute path="/shipping" component={Shipping} exact />

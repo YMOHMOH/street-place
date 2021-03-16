@@ -24,6 +24,7 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
   }
   req.body.images = imagesLinks;
   req.body.user = req.user.id;
+  req.body.stock = { S: 0, M: 0, L: 0, XL: 0, XXL: 0, US: 0 };
 
   const product = await Product.create(req.body);
 
