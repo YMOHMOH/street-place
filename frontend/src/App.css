@@ -669,8 +669,8 @@ nav {
 
 #sidebar ul li.active > a,
 a[aria-expanded="true"] {
-  color: #fff;
-  background: #232f3e;
+  /* color: #fff;
+  background: #232f3e; */
 }
 a[data-toggle="collapse"] {
   position: relative;

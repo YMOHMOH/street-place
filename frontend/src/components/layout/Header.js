@@ -70,7 +70,7 @@ function Header() {
                     className="rounded-circle"
                   />
                 </figure>
-                <span>{user && user.name}</span>
+                <span style={{ color: "black" }}>{user && user.name}</span>
               </Link>
 
               <div className="dropdown-menu" aria-labelledby="">
