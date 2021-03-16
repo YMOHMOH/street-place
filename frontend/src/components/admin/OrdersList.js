@@ -133,6 +133,7 @@ function OrdersList({ history }) {
                   bordered
                   striped
                   hover
+                  responsive
                 />
               </Fragment>
             )}

@@ -150,6 +150,7 @@ function ProductReviews() {
                 bordered
                 striped
                 hover
+                responsive
               />
             ) : (
               <p className="mt-5 text-center">No Reviews</p>

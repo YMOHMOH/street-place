@@ -122,6 +122,7 @@ function UsersList({ history }) {
                   bordered
                   striped
                   hover
+                  responsive
                 />
               </Fragment>
             )}
