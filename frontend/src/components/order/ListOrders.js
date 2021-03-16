@@ -92,6 +92,7 @@ function ListOrders() {
           bordered
           striped
           hover
+          responsive
         />
       )}
     </Fragment>

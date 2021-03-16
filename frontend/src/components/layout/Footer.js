@@ -80,7 +80,7 @@ function Footer() {
             </InfoBarFace>
             <InfoBarFace>
               <InfoBarContent>
-                <p></p>
+                <p>Tous les paiements sont sécurisés et approuvés</p>
               </InfoBarContent>
             </InfoBarFace>
           </InfoBarCard>
