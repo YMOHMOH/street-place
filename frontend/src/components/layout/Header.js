@@ -23,9 +23,24 @@ function Header() {
 
   return (
     <Fragment>
-      <nav className="navbar row" style={{ padding: "0rem 1rem" }}>
+      <nav
+        className="navbar row"
+        style={{
+          // display: "flex",
+          // justifyContent: "center",
+          // alignItems: "center",
+          padding: "0rem 1rem",
+        }}
+      >
         <div className="col-12 col-md-3">
-          <div className="navbar-brand">
+          <div
+            className="navbar-brand"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <Link to="/">
               <img
                 src="/images/streetplace_logo.png"
