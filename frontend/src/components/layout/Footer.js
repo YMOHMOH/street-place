@@ -123,7 +123,7 @@ function Footer() {
           <QuickLinks>
             <h2>Informations</h2>
             <ul>
-              <Link to="/shipping/info/#" style={{ textDecoration: "none" }}>
+              <Link to="/shipping/info/" style={{ textDecoration: "none" }}>
                 <li>Livraison et Retour</li>
               </Link>
 

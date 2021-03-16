@@ -33,7 +33,7 @@ function ListOrders() {
           sort: "asc",
         },
         {
-          label: "Quantité",
+          label: "Nombre d'articles",
           field: "numOfItems",
           sort: "asc",
         },

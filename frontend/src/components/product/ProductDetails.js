@@ -217,7 +217,10 @@ function ProductDetails({ match }) {
                     className="mx-2"
                     id="size_field"
                     value={size}
-                    onChange={(e) => setSize(e.target.value)}
+                    onChange={(e) => {
+                      setSize(e.target.value);
+                      setQuantity(1);
+                    }}
                   >
                     {sizes.map((size) => {
                       return (
