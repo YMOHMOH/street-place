@@ -128,7 +128,9 @@ function Payment({ history }) {
       <div className="row wrapper">
         <div className="col-10 col-lg-5">
           <form className="shadow-lg" onSubmit={submitHandler}>
-            <h1 className="mb-4">Paiement par carte</h1>
+            <h1 className="mb-4">
+              Montant : {` ${orderInfo && orderInfo.total} €`}
+            </h1>
 
             <div className="form-group">
               <label htmlFor="card_num_field">Numéro de carte</label>
@@ -161,7 +163,7 @@ function Payment({ history }) {
             </div>
 
             <button id="pay_btn" type="submit" className="btn btn-block py-3">
-              Paiement {` ${orderInfo && orderInfo.total} €`}
+              Paiement par carte
             </button>
 
             {orderInfo && (
