@@ -108,8 +108,38 @@ function Footer() {
               répondre aux besoins de jeunes créateurs et ainsi mettre en avant
               leur créativité artisitique.
             </p>
-            {/* <SciFooter>
-              <li>
+            <div
+              style={{
+                displex: "flex",
+                marginTop: "20px",
+                marginBottom: "20px",
+              }}
+            >
+              <img
+                src="/images/cb.jpg"
+                alt="payment"
+                width="65px"
+                height="50px"
+              />
+              <img
+                src="/images/visa.jpg"
+                alt="payment"
+                width="65px"
+                height="50px"
+              />
+              <img
+                src="/images/mastercard.jpg"
+                alt="payment"
+                width="65px"
+                height="50px"
+              />
+              <img
+                src="/images/paypal.png"
+                alt="payment"
+                width="65px"
+                height="50px"
+              />
+              {/* <li>
                 <i class="fa fa-instagram"></i>
               </li>
               <li>
@@ -117,8 +147,8 @@ function Footer() {
               </li>
               <li>
                 <i class="fa fa-facebook"></i>
-              </li>
-            </SciFooter> */}
+              </li>*/}
+            </div>
           </AboutUs>
           <QuickLinks>
             <h2>Informations</h2>

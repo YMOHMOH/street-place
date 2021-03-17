@@ -9,6 +9,8 @@ import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { createOrder, clearErrors } from "../../actions/orderActions";
 
+import { SciFooter } from "../../styled/lib";
+
 import {
   useStripe,
   useElements,
@@ -165,6 +167,45 @@ function Payment({ history }) {
             <button id="pay_btn" type="submit" className="btn btn-block py-3">
               Paiement par carte
             </button>
+            <div
+              style={{
+                displex: "flex",
+                width: "100%",
+                justifyContent: "center",
+                alignItems: "center",
+                marginTop: "20px",
+              }}
+            >
+              <img
+                src="/images/cb.jpg"
+                alt="payment"
+                width="35px"
+                height="30px"
+                style={{ marginRight: "5px" }}
+              />
+              <img
+                src="/images/visa.jpg"
+                alt="payment"
+                width="35px"
+                height="30px"
+                style={{ marginRight: "5px" }}
+              />
+              <img
+                src="/images/mastercard.jpg"
+                alt="payment"
+                width="35px"
+                height="30px"
+              />
+              {/* <li>
+                <i class="fa fa-instagram"></i>
+              </li>
+              <li>
+                <i class="fa fa-snapchat"></i>
+              </li>
+              <li>
+                <i class="fa fa-facebook"></i>
+              </li>*/}
+            </div>
 
             {orderInfo && (
               <>
