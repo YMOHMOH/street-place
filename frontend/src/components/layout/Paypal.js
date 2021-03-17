@@ -43,6 +43,7 @@ function Paypal({ history }) {
 
   async function getPaypalClientId() {
     const { data } = await axios.get("/api/v1/paypalid");
+    console.log(data);
     setPaypalClientId(data.paypalClientId);
     setPaypalClientIdSb(data.paypalClientIdSandbox);
 
