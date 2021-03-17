@@ -110,6 +110,11 @@ function Cart({ history }) {
                                   item.size
                                 )
                               }
+                              style={{
+                                color: "#fa9c23",
+                                background: "white",
+                                border: "1px solid #fa9c23",
+                              }}
                             >
                               -
                             </span>
@@ -130,6 +135,11 @@ function Cart({ history }) {
                                   item.stock
                                 )
                               }
+                              style={{
+                                color: "#fa9c23",
+                                background: "white",
+                                border: "1px solid #fa9c23",
+                              }}
                             >
                               +
                             </span>

@@ -173,7 +173,15 @@ function ProductDetails({ match }) {
 
               <p id="product_price">{product.price} €</p>
               <div className="stockCounter d-inline">
-                <span className="btn btn-danger minus" onClick={decreaseQty}>
+                <span
+                  className="btn btn-danger minus"
+                  onClick={decreaseQty}
+                  style={{
+                    color: "#fa9c23",
+                    background: "white",
+                    border: "1px solid #fa9c23",
+                  }}
+                >
                   -
                 </span>
 
@@ -184,7 +192,15 @@ function ProductDetails({ match }) {
                   readOnly
                 />
 
-                <span className="btn btn-primary plus" onClick={increaseQty}>
+                <span
+                  className="btn btn-primary plus"
+                  onClick={increaseQty}
+                  style={{
+                    color: "#fa9c23",
+                    background: "white",
+                    border: "1px solid #fa9c23",
+                  }}
+                >
                   +
                 </span>
               </div>
