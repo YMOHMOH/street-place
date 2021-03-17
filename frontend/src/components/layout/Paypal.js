@@ -51,7 +51,8 @@ function Paypal({ history }) {
 
   const onSuccess = (payment) => {
     order.paymentInfo = {
-      id: "1234",
+      id: payment.paymentID,
+      method: "PAYPAL",
       status: "succeeded",
     };
 

@@ -98,6 +98,8 @@ function Payment({ history }) {
         if (result.paymentIntent.status === "succeeded") {
           order.paymentInfo = {
             id: result.paymentIntent.id,
+
+            method: "STRIPE",
             status: result.paymentIntent.status,
           };
 

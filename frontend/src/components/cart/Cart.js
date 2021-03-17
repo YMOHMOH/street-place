@@ -71,10 +71,11 @@ function Cart({ history }) {
           <div className="row d-flex justify-content-between">
             <div className="col-12 col-lg-8">
               {cartItems.map((item, index) => {
+                let key = item.image + item.size;
                 return (
                   <Fragment>
                     <hr />
-                    <div className="cart-item" key={index}>
+                    <div className="cart-item" key={key}>
                       <div className="row">
                         <div className="col-4 col-lg-3">
                           <img

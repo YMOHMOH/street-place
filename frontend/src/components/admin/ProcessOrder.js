@@ -109,7 +109,9 @@ function ProcessOrder({ match }) {
                     <b>{isPaid ? "PAID" : "NOT PAID"}</b>
                   </p>
 
-                  <h4 className="my-4">Stripe ID</h4>
+                  <h4 className="my-4">
+                    {order.paymentInfo && order.paymentInfo.method} ID
+                  </h4>
                   <p>
                     <b>{order.paymentInfo && order.paymentInfo.id}</b>
                   </p>
