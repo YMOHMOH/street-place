@@ -83,9 +83,9 @@ function Home({ match }) {
           <h1 id="products_heading">Produits</h1>
           <section id="products" className="container mt-5">
             <div className="row">
-              {keyword ? (
+              {/* {keyword ? (
                 <Fragment>
-                  {/* <div className="col-6 col-md-3 mt-5 mb-5">
+                   <div className="col-6 col-md-3 mt-5 mb-5">
                     <div className="px-5">
                       <Range
                         marks={{ 1: `1€`, 150: `150€` }}
@@ -147,7 +147,7 @@ function Home({ match }) {
                         </ul>
                       </div>
                     </div>
-                  </div> */}
+                  </div> 
                   <div className="col-6 col-md-9">
                     <div className="row">
                       {products &&
@@ -170,7 +170,13 @@ function Home({ match }) {
                     <Product key={product._id} product={product} col={3} />
                   );
                 })
-              )}
+              )}*/}
+              {products &&
+                products.map((product) => {
+                  return (
+                    <Product key={product._id} product={product} col={3} />
+                  );
+                })}
             </div>
           </section>
 
