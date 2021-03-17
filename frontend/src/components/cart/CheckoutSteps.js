@@ -26,7 +26,7 @@ function CheckoutSteps({ shipping, confirmOrder, payment }) {
         </Link>
       ) : (
         <Link to="#!" disabled>
-          <div className="triangle2-incomplete"></div>
+          {/* <div className="triangle2-incomplete"></div> */}
           <div className="step incomplete">Confirmer</div>
           {/* <div className="triangle-incomplete"></div> */}
         </Link>

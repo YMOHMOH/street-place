@@ -388,6 +388,10 @@ nav {
   border-radius: 5rem;
 }
 
+#pay_btn:hover {
+  opacity: 0.8;
+}
+
 #view_order_details {
   background-color: #fa9c23;
   border-color: #fa9c23;

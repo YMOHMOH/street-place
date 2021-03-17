@@ -25,3 +25,12 @@ exports.sendStripeApi = catchAsyncErrors(async (req, res, next) => {
     stripeApiKey: process.env.STRIPE_API_KEY,
   });
 });
+
+// Send Paypal Client ID => /api/v1/paypalid
+
+exports.sendPaypalId = catchAsyncErrors(async (req, res, next) => {
+  res.status(200).json({
+    paypalClientIdSandbox: process.env.PAYPAL_CLIENT_ID_SANDBOX || "sb",
+    paypalClientId: process.env.PAYPAL_CLIENT_ID || "live",
+  });
+});

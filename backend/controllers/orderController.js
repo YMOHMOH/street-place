@@ -29,6 +29,10 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
     user: req.user._id,
   });
 
+  order.orderItems.forEach(async (item) => {
+    await updateStock(item.product, item.quantity, item.size);
+  });
+
   res.status(200).json({
     success: true,
     order,
@@ -87,30 +91,23 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
   }
 
   if (order.orderStatus === "Processing" && req.body.status !== "Processing") {
-    console.log("Processing => Shipped or Delivered");
-    order.orderItems.forEach(async (item) => {
-      await updateStock(item.product, item.quantity, item.size);
-    });
+    // order.orderItems.forEach(async (item) => {
+    //   await updateStock(item.product, item.quantity, item.size);
+    // });
 
     if (req.body.status === "Delivered") {
-      console.log("Processing => Delivered");
       order.deliveredAt = Date.now();
     }
   }
 
   if (order.orderStatus === "Shipped" && req.body.status !== "Shipped") {
-    console.log("Shipped => Processing");
-
     if (req.body.status === "Processing") {
       return next(new ErrorHandler("You have already shipped this order", 400));
     }
-    console.log("Shipped => Delivered");
     order.deliveredAt = Date.now();
   }
 
   order.orderStatus = req.body.status;
-
-  console.log(order.orderStatus);
 
   await order.save();
 

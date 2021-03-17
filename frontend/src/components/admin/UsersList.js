@@ -78,7 +78,7 @@ function UsersList({ history }) {
       data.rows.push({
         id: user._id,
         name: user.name,
-        email: user.name,
+        email: user.email,
         role: user.role,
         actions: (
           <Fragment>

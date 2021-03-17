@@ -1,6 +1,8 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
+import axios from "axios";
 
 import MetaData from "../layout/MetaData";
+import Paypal from "../layout/Paypal";
 import CheckoutSteps from "./CheckoutSteps";
 
 import { useAlert } from "react-alert";
@@ -14,8 +16,6 @@ import {
   CardExpiryElement,
   CardCvcElement,
 } from "@stripe/react-stripe-js";
-
-import axios from "axios";
 
 const options = {
   style: {
@@ -105,13 +105,18 @@ function Payment({ history }) {
 
           history.push("/success");
         } else {
-          alert.error("There is some issue while payment processing");
+          alert.error("Le paiement n'a pas pu être effectué");
         }
       }
     } catch (error) {
       document.querySelector("#pay_btn").disabled = false;
       alert.error(error.response.data.message);
     }
+  };
+
+  const successPaymentHandler = () => {
+    console.log("success");
+    // history.push("/success");
   };
 
   return (
@@ -122,6 +127,7 @@ function Payment({ history }) {
         <div className="col-10 col-lg-5">
           <form className="shadow-lg" onSubmit={submitHandler}>
             <h1 className="mb-4">Paiement par carte</h1>
+
             <div className="form-group">
               <label htmlFor="card_num_field">Numéro de carte</label>
               <CardNumberElement
@@ -153,8 +159,15 @@ function Payment({ history }) {
             </div>
 
             <button id="pay_btn" type="submit" className="btn btn-block py-3">
-              Paiement {`- ${orderInfo && orderInfo.total} €`}
+              Paiement {` ${orderInfo && orderInfo.total} €`}
             </button>
+
+            {orderInfo && (
+              <>
+                <h2 className="my-4 text-center">OU</h2>
+                <Paypal history={history} />
+              </>
+            )}
           </form>
         </div>
       </div>

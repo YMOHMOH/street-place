@@ -11,10 +11,18 @@ const sendToken = (user, statusCode, res) => {
     httpOnly: true,
   };
 
+  const sendUser = {
+    avatar: user.avatar,
+    role: user.role,
+    _id: user._id,
+    name: user.name,
+    email: user.email,
+  };
+
   res.status(statusCode).cookie("token", token, options).json({
     success: true,
     token,
-    user,
+    user: sendUser,
   });
 };
 
