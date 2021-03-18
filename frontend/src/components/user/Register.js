@@ -8,7 +8,8 @@ import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { register, clearErrors } from "../../actions/userActions";
 
-function Register({ getStripeApiKey }) {
+function Register() {
+  // { getStripeApiKey }
   let history = useHistory();
 
   const [user, setUser] = useState({

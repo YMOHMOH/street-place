@@ -17,6 +17,8 @@
 // export default Footer;
 import React from "react";
 import { Link, useHistory } from "react-router-dom";
+
+import { animateScroll as scroll } from "react-scroll";
 import {
   FooterWrapper,
   FooterContainer,
@@ -113,6 +115,9 @@ function Footer() {
                 displex: "flex",
                 marginTop: "20px",
                 marginBottom: "20px",
+              }}
+              onClick={() => {
+                scroll.scrollToTop();
               }}
             >
               <img

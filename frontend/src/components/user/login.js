@@ -9,7 +9,8 @@ import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { login, clearErrors } from "../../actions/userActions";
 
-function Login({ getStripeApiKey }) {
+function Login() {
+  // { getStripeApiKey }
   let history = useHistory();
   let location = useLocation();
 

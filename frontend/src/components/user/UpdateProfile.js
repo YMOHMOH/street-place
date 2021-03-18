@@ -31,7 +31,7 @@ function UpdateProfile({ history }) {
     if (user) {
       setName(user.name);
       setEmail(user.email);
-      if (user.avatar) {
+      if (user.avatar.url) {
         setAvatarPreview(user.avatar.url);
       } else {
         setAvatarPreview("/images/default_avatar.jpg");

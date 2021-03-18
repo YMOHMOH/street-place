@@ -22,7 +22,9 @@ function Profile() {
                 <img
                   className="rounded-circle img-fluid"
                   src={
-                    user.avatar ? user.avatar.url : "/images/default_avatar.jpg"
+                    user.avatar.url
+                      ? user.avatar.url
+                      : "/images/default_avatar.jpg"
                   }
                   alt={user.name}
                 />

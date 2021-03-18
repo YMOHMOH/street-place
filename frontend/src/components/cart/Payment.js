@@ -9,6 +9,9 @@ import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { createOrder, clearErrors } from "../../actions/orderActions";
 
+// import { Elements } from "@stripe/react-stripe-js";
+// import { loadStripe } from "@stripe/stripe-js";
+
 import { SciFooter } from "../../styled/lib";
 
 import {
@@ -130,10 +133,12 @@ function Payment({ history }) {
       <div className="row wrapper">
         <div className="col-10 col-lg-5">
           <form className="shadow-lg" onSubmit={submitHandler}>
-            <h1 className="mb-4">
-              Montant : {` ${orderInfo && orderInfo.total} €`}
-            </h1>
-
+            <h1 className="mb-4">Paiement</h1>
+            {/* <Elements
+              stripe={loadStripe(
+                "pk_test_51HwQMqBtb5s91e5N6hNvaJIePCb1QSzv7HDbsAQ1NoC3QfJpdRysaoCYAQWMkzFVX286qaOVIQ5Ir3rJka6sKarb00BL04iAVX"
+              )}
+            > */}
             <div className="form-group">
               <label htmlFor="card_num_field">Numéro de carte</label>
               <CardNumberElement
@@ -165,7 +170,7 @@ function Payment({ history }) {
             </div>
 
             <button id="pay_btn" type="submit" className="btn btn-block py-3">
-              Paiement par carte
+              Payer {` ${orderInfo && orderInfo.total} €`}
             </button>
             <div
               style={{
@@ -196,6 +201,7 @@ function Payment({ history }) {
                 width="35px"
                 height="30px"
               />
+
               {/* <li>
                 <i class="fa fa-instagram"></i>
               </li>
@@ -206,6 +212,7 @@ function Payment({ history }) {
                 <i class="fa fa-facebook"></i>
               </li>*/}
             </div>
+            {/* </Elements> */}
 
             {orderInfo && (
               <>

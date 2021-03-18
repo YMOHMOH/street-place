@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, Component } from "react";
 
 import "./App.css";
 import {
@@ -82,33 +82,34 @@ library.add(
   faStar
 );
 
-function _ScrollToTop(props) {
-  const { pathname } = useLocation();
+class _ScrollToTop extends Component {
+  componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      window.scrollTo(0, 0);
+    }
+  }
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, [pathname]);
-
-  return null;
+  render() {
+    return this.props.children;
+  }
 }
 const ScrollToTop = withRouter(_ScrollToTop);
 
 function App() {
-  const [stripeApiKey, setStripeApiKey] = useState("");
+  // const [stripeApiKey, setStripeApiKey] = useState("");
 
   useEffect(() => {
     store.dispatch(loadUser());
 
-    getStripeApiKey();
+    // getStripeApiKey();
   }, []);
   const { user, loading, isAuthenticated } = useSelector((state) => state.auth);
-  async function getStripeApiKey() {
-    const { data } = await axios.get("/api/v1/stripeapi");
-    setStripeApiKey(data.stripeApiKey);
-  }
+  // async function getStripeApiKey() {
+  //   const { data } = await axios.get("/api/v1/stripeapi");
+  //   setStripeApiKey(data.stripeApiKey);
+  // }
   return (
     <Router>
-      <ScrollToTop />
       <div className="App">
         <Header />
         <div className="container container-fluid">
@@ -125,17 +126,24 @@ function App() {
           <ProtectedRoute path="/shipping" component={Shipping} exact />
           <ProtectedRoute path="/confirm" component={ConfirmOrder} exact />
           <ProtectedRoute path="/success" component={OrderSuccess} exact />
-          {stripeApiKey && (
-            <Elements stripe={loadStripe(stripeApiKey)}>
-              <ProtectedRoute path="/payment" component={Payment} exact />
-            </Elements>
-          )}
+          {/* {stripeApiKey && ( */}
+          <Elements
+            stripe={loadStripe(
+              "pk_test_51HwQMqBtb5s91e5N6hNvaJIePCb1QSzv7HDbsAQ1NoC3QfJpdRysaoCYAQWMkzFVX286qaOVIQ5Ir3rJka6sKarb00BL04iAVX"
+            )}
+          >
+            {/* <Elements stripe={loadStripe(stripeApiKey)}> */}
+            <ProtectedRoute path="/payment" component={Payment} exact />
+          </Elements>
+          {/* )} */}
 
           <Route path="/login">
-            <Login getStripeApiKey={getStripeApiKey} />
+            {/* <Login getStripeApiKey={getStripeApiKey} /> */}
+            <Login />
           </Route>
           <Route path="/register">
-            <Register getStripeApiKey={getStripeApiKey} />
+            {/* <Register getStripeApiKey={getStripeApiKey} /> */}
+            <Register />
           </Route>
           <Route path="/password/forgot" component={ForgotPassword} exact />
           <Route path="/password/reset/:token" component={NewPassword} exact />
@@ -204,6 +212,7 @@ function App() {
           component={ProductReviews}
           exact
         />
+
         <Footer />
         {/* {!loading && (!isAuthenticated || user.role !== "admin") && <Footer />} */}
       </div>
