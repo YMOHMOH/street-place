@@ -141,7 +141,7 @@ function Footer() {
               <img
                 src="/images/paypal.png"
                 alt="payment"
-                width="65px"
+                // width="65px"
                 height="50px"
               />
               {/* <li>
