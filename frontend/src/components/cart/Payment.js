@@ -1,8 +1,10 @@
 import React, { Fragment, useEffect, useState } from "react";
 import axios from "axios";
+import { PayPalButton } from "react-paypal-button-v2";
 
 import MetaData from "../layout/MetaData";
 import Paypal from "../layout/Paypal";
+
 import CheckoutSteps from "./CheckoutSteps";
 
 import { useAlert } from "react-alert";
@@ -21,6 +23,8 @@ import {
   CardExpiryElement,
   CardCvcElement,
 } from "@stripe/react-stripe-js";
+import { set } from "mongoose";
+import Loader from "../layout/Loader";
 
 const options = {
   style: {
@@ -39,16 +43,36 @@ function Payment({ history }) {
   const elements = useElements();
   const dispatch = useDispatch();
 
+  const [sdkReady, setSdkReady] = useState(false);
+
   const { user } = useSelector((state) => state.auth);
   const { cartItems, shippingInfo } = useSelector((state) => state.cart);
   const { error } = useSelector((state) => state.order);
 
   useEffect(() => {
+    const addPayPalScricpt = async () => {
+      const script = document.createElement("script");
+      script.type = "text/javascript";
+      script.src =
+        "https://www.paypal.com/sdk/js?client-id=ASiS8Pz055IYESs0mP437mkbjX_JH2doa-tj8FjAtG6JORUzRuMckrUoVuGSIrHvIvi-f4sfCCtSgZzM";
+      script.async = true;
+      script.onload = () => {
+        setSdkReady(true);
+      };
+      document.body.appendChild(script);
+    };
+
+    if (!window.paypal) {
+      addPayPalScricpt();
+    } else {
+      setSdkReady(true);
+    }
+
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
     }
-  }, [dispatch, alert, error]);
+  }, [dispatch, alert, error, sdkReady]);
 
   const order = {
     orderItems: cartItems,
@@ -122,8 +146,18 @@ function Payment({ history }) {
   };
 
   const successPaymentHandler = () => {
-    console.log("success");
-    // history.push("/success");
+    order.paymentInfo = {
+      id: "1234",
+      method: "PAYPAL",
+      status: "succeeded",
+    };
+
+    dispatch(createOrder(order));
+
+    history.push("/success");
+    // Congratulation, it came here means everything's fine!
+    console.log("The payment was succeeded!");
+    alert.success("Le paiement a été effectué");
   };
 
   return (
@@ -215,7 +249,22 @@ function Payment({ history }) {
             {/* </Elements> */}
 
             <h2 className="my-4 text-center">OU</h2>
-            <Paypal history={history} />
+            {!sdkReady ? (
+              <Loader />
+            ) : (
+              <PayPalButton
+                amount={orderInfo.total}
+                onSuccess={successPaymentHandler}
+                style={{
+                  size: "responsive",
+                  shape: "pill",
+                  label: "paypal",
+                  layout: "horizontal",
+                  tagline: "false",
+                }}
+              ></PayPalButton>
+            )}
+            {/* <Paypal history={history} /> */}
           </form>
         </div>
       </div>
