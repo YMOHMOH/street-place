@@ -10,9 +10,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { createOrder, clearErrors } from "../../actions/orderActions";
 
 function Paypal({ history }) {
-  const [paypalClientId, setPaypalClientId] = useState("");
-  const [paypalClientIdSb, setPaypalClientIdSb] = useState("");
-  const [isLoading, setIsLoading] = useState(true);
+  // const [paypalClientId, setPaypalClientId] = useState("");
+  // const [paypalClientIdSb, setPaypalClientIdSb] = useState("");
+  // const [isLoading, setIsLoading] = useState(true);
 
   const alert = useAlert();
   const dispatch = useDispatch();
@@ -21,7 +21,7 @@ function Paypal({ history }) {
   const { error } = useSelector((state) => state.order);
 
   useEffect(() => {
-    getPaypalClientId();
+    // getPaypalClientId();
     if (error) {
       alert.error(error);
       dispatch(clearErrors());
@@ -41,14 +41,14 @@ function Paypal({ history }) {
     order.totalPrice = orderInfo.total;
   }
 
-  async function getPaypalClientId() {
-    const { data } = await axios.get("/api/v1/paypalid");
-    console.log(data);
-    setPaypalClientId(data.paypalClientId);
-    setPaypalClientIdSb(data.paypalClientIdSandbox);
+  // async function getPaypalClientId() {
+  //   const { data } = await axios.get("/api/v1/paypalid");
+  //   console.log(data);
+  //   setPaypalClientId(data.paypalClientId);
+  //   setPaypalClientIdSb(data.paypalClientIdSandbox);
 
-    setIsLoading(false);
-  }
+  //   setIsLoading(false);
+  // }
 
   const onSuccess = (payment) => {
     order.paymentInfo = {
@@ -87,8 +87,11 @@ function Paypal({ history }) {
   // Document on Paypal's currency code: https://developer.paypal.com/docs/classic/api/currency_codes/
 
   const client = {
-    sandbox: paypalClientIdSb || "sb",
-    production: paypalClientId || "live",
+    // sandbox: paypalClientIdSb || "sb",
+    // production: paypalClientId || "live",
+    sandbox:
+      "ASiS8Pz055IYESs0mP437mkbjX_JH2doa-tj8FjAtG6JORUzRuMckrUoVuGSIrHvIvi-f4sfCCtSgZzM",
+    production: "live",
   };
 
   console.log(client.sandbox);
@@ -103,24 +106,24 @@ function Paypal({ history }) {
   // NB. You can also have many Paypal express checkout buttons on page, just pass in the correct amount and they will work!
   return (
     <>
-      {isLoading ? (
+      {/* {isLoading ? (
         <Loader />
-      ) : (
-        <PaypalExpressBtn
-          env={env}
-          client={client}
-          currency={currency}
-          total={total}
-          onError={onError}
-          onSuccess={onSuccess}
-          onCancel={onCancel}
-          style={{
-            size: "responsive",
-            tagline: "false",
-            label: "paypal",
-          }}
-        />
-      )}
+      ) : ( */}
+      <PaypalExpressBtn
+        env={env}
+        client={client}
+        currency={currency}
+        total={total}
+        onError={onError}
+        onSuccess={onSuccess}
+        onCancel={onCancel}
+        style={{
+          size: "responsive",
+          tagline: "false",
+          label: "paypal",
+        }}
+      />
+      {/* )} */}
     </>
   );
 }

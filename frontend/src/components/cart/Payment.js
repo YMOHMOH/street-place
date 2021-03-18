@@ -214,12 +214,8 @@ function Payment({ history }) {
             </div>
             {/* </Elements> */}
 
-            {orderInfo && (
-              <>
-                <h2 className="my-4 text-center">OU</h2>
-                <Paypal history={history} />
-              </>
-            )}
+            <h2 className="my-4 text-center">OU</h2>
+            <Paypal history={history} />
           </form>
         </div>
       </div>
