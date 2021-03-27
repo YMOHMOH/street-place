@@ -67,7 +67,7 @@ function Footer() {
             <InfoBarFace>
               <InfoBarContent>
                 <p>
-                  14 jours pour retourner un article. Remboursement effectué dés
+                  14 jours pour retourner un article. Remboursement effectué dès
                   réception
                 </p>
               </InfoBarContent>
@@ -77,7 +77,7 @@ function Footer() {
             <InfoBarFace>
               <InfoBarContent>
                 <img src="/images/credit-card.png" />
-                <h3>Paiements securisées</h3>
+                <h3>Paiements securisés</h3>
               </InfoBarContent>
             </InfoBarFace>
             <InfoBarFace>
@@ -90,7 +90,7 @@ function Footer() {
             <InfoBarFace>
               <InfoBarContent>
                 <img src="/images/clock.png" />
-                <h3>Expedition rapide</h3>
+                <h3>Expédition rapide</h3>
               </InfoBarContent>
             </InfoBarFace>
             <InfoBarFace>
@@ -106,7 +106,7 @@ function Footer() {
           <AboutUs>
             <h2>StreetPlace</h2>
             <p>
-              La culture urbaine s'exprime. StreetPlace a été créé afin de
+              La culture urbaine s'exprime. StreetPlace a été créée afin de
               répondre aux besoins de jeunes créateurs et ainsi mettre en avant
               leur créativité artisitique.
             </p>
@@ -163,7 +163,7 @@ function Footer() {
               </Link>
 
               <Link to="/payment/info" style={{ textDecoration: "none" }}>
-                <li>Paiement sécurisé</li>
+                <li>Paiements sécurisés</li>
               </Link>
               <Link to="/legalNotice/info" style={{ textDecoration: "none" }}>
                 <li>Mentions légales</li>
