@@ -55,7 +55,10 @@ function Payment({ history }) {
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.src =
-        "https://www.paypal.com/sdk/js?client-id=Aev0w66gVrFwY7B20F4h7oDWJgkaGobxo9QQAj_-zT5K3yuZsoONGhV53qX_DNnPwDqTVxiTHmvq-C5e";
+        "https://www.paypal.com/sdk/js?client-id=Aev0w66gVrFwY7B20F4h7oDWJgkaGobxo9QQAj_-zT5K3yuZsoONGhV53qX_DNnPwDqTVxiTHmvq-C5e&currency=EUR";
+      // script.src =
+      //   "https://www.paypal.com/sdk/js?client-id=ASiS8Pz055IYESs0mP437mkbjX_JH2doa-tj8FjAtG6JORUzRuMckrUoVuGSIrHvIvi-f4sfCCtSgZzM&currency=EUR";
+
       script.async = true;
       script.onload = () => {
         setSdkReady(true);
@@ -146,7 +149,9 @@ function Payment({ history }) {
     }
   };
 
-  const successPaymentHandler = () => {
+  const successPaymentHandler = (paymentResult) => {
+    console.log(paymentResult);
+
     order.paymentInfo = {
       id: "1234",
       method: "PAYPAL",
@@ -256,6 +261,7 @@ function Payment({ history }) {
               <PayPalButton
                 amount={orderInfo.total}
                 onSuccess={successPaymentHandler}
+                currency="EUR"
                 style={{
                   size: "responsive",
                   shape: "pill",
