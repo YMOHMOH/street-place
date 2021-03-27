@@ -108,7 +108,7 @@ function App() {
           {/* {stripeApiKey && ( */}
           <Elements
             stripe={loadStripe(
-              "pk_test_51HwQMqBtb5s91e5N6hNvaJIePCb1QSzv7HDbsAQ1NoC3QfJpdRysaoCYAQWMkzFVX286qaOVIQ5Ir3rJka6sKarb00BL04iAVX"
+              "pk_live_51HwQMqBtb5s91e5NhJ9MCS2kNsWLFyOs6eHBrizMouj3xyLLyXUtEwRNrNTko6KHg5rTzj7dofNT9BneUNTmTukx00vsmTWz6E"
             )}
           >
             {/* <Elements stripe={loadStripe(stripeApiKey)}> */}
