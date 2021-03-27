@@ -150,10 +150,8 @@ function Payment({ history }) {
   };
 
   const successPaymentHandler = (paymentResult) => {
-    console.log(paymentResult);
-
     order.paymentInfo = {
-      id: "1234",
+      id: paymentResult.id,
       method: "PAYPAL",
       status: "succeeded",
     };
