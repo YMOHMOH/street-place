@@ -83,12 +83,12 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
     "host"
   )}/password/reset/${resetToken}`;
 
-  const message = `Your password reset token is as follow:\n\n${resetUrl}\n\nIf you have not requested this email, then ignore it.`;
+  const message = `Veuillez cliquer sur le lien suivant pour changer votre mot de passe :\n\n${resetUrl}\n\nSi vous n'etes pas à l'initiative de ce mail, ignorez le.`;
 
   try {
     await sendEmail({
       email: user.email,
-      subject: "StreetPlace Password Recovery",
+      subject: "StreetPlace - Changement de mot de passe",
       message,
     });
     res.status(200).json({

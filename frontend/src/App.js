@@ -1,12 +1,7 @@
-import { useEffect, useState, Component } from "react";
+import { useEffect } from "react";
 
 import "./App.css";
-import {
-  BrowserRouter as Router,
-  Route,
-  useLocation,
-  withRouter,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Header from "./components/layout/Header";
 import Footer from "./components/layout/Footer";
@@ -55,12 +50,10 @@ import ProtectedRoute from "./components/route/ProtectedRoute";
 import { loadUser } from "./actions/userActions";
 import { useSelector } from "react-redux";
 import store from "./store";
-import axios from "axios";
 
 // Payment
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import { userReducer } from "./reducers/userReducers";
 
 import { library } from "@fortawesome/fontawesome-svg-core";
 import {
@@ -82,19 +75,6 @@ library.add(
   faStar
 );
 
-class _ScrollToTop extends Component {
-  componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
-      window.scrollTo(0, 0);
-    }
-  }
-
-  render() {
-    return this.props.children;
-  }
-}
-const ScrollToTop = withRouter(_ScrollToTop);
-
 function App() {
   // const [stripeApiKey, setStripeApiKey] = useState("");
 
@@ -103,7 +83,6 @@ function App() {
 
     // getStripeApiKey();
   }, []);
-  const { user, loading, isAuthenticated } = useSelector((state) => state.auth);
   // async function getStripeApiKey() {
   //   const { data } = await axios.get("/api/v1/stripeapi");
   //   setStripeApiKey(data.stripeApiKey);

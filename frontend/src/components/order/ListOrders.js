@@ -94,9 +94,53 @@ function ListOrders() {
           hover
           responsive
         />
+        // <table class="table table-bordered" id="myTable">
+        //   <thead>
+        //     <tr>
+        //       <td>Id</td>
+        //       <td>Nombre d'articles</td>
+        //       <td>Montant</td>
+        //       <td>Statut</td>
+        //       <td>Actions</td>
+        //     </tr>
+        //   </thead>
+        //   <tbody>
+        //     {orders.map((order) => {
+        //       return (
+        //         <>
+        //           <tr>
+        //             <td>{order._id}</td>
+        //             <td>{order.orderItems.length}</td>
+        //             <td>{`${order.totalPrice} €`}</td>
+        //             <td>
+        //               {order.orderStatus &&
+        //               String(order.orderStatus).includes("Delivered") ? (
+        //                 <p style={{ color: "green" }}>{order.orderStatus}</p>
+        //               ) : (
+        //                 <p style={{ color: "red" }}>{order.orderStatus}</p>
+        //               )}
+        //             </td>
+        //             <td>
+        //               {
+        //                 <Link
+        //                   to={`/order/${order._id}`}
+        //                   className="btn btn-primary"
+        //                 >
+        //                   <i className="fa fa-eye"></i>
+        //                 </Link>
+        //               }
+        //             </td>
+        //           </tr>
+        //         </>
+        //       );
+        //     })}
+        //   </tbody>
+        // </table>
       )}
     </Fragment>
   );
 }
 
 export default ListOrders;
+
+//cdn.datatables.net/plug-ins/1.10.24/i18n/French.json

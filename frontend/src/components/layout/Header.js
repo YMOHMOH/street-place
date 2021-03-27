@@ -75,7 +75,6 @@ function Header() {
                 aria-expanded="false"
               >
                 <figure className="avatar avatar-nav">
-                  {console.log(user)}
                   <img
                     src={
                       user.avatar.url
