@@ -55,7 +55,7 @@ function Payment({ history }) {
       const script = document.createElement("script");
       script.type = "text/javascript";
       script.src =
-        "https://www.paypal.com/sdk/js?client-id=ASiS8Pz055IYESs0mP437mkbjX_JH2doa-tj8FjAtG6JORUzRuMckrUoVuGSIrHvIvi-f4sfCCtSgZzM";
+        "https://www.paypal.com/sdk/js?client-id=Aev0w66gVrFwY7B20F4h7oDWJgkaGobxo9QQAj_-zT5K3yuZsoONGhV53qX_DNnPwDqTVxiTHmvq-C5e";
       script.async = true;
       script.onload = () => {
         setSdkReady(true);
