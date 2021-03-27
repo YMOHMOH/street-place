@@ -10,6 +10,7 @@ import CheckoutSteps from "./CheckoutSteps";
 import { useAlert } from "react-alert";
 import { useDispatch, useSelector } from "react-redux";
 import { createOrder, clearErrors } from "../../actions/orderActions";
+import { clearCart } from "../../actions/cartActions";
 
 // import { Elements } from "@stripe/react-stripe-js";
 // import { loadStripe } from "@stripe/stripe-js";
@@ -133,7 +134,7 @@ function Payment({ history }) {
           };
 
           dispatch(createOrder(order));
-
+          dispatch(clearCart());
           history.push("/success");
         } else {
           alert.error("Le paiement n'a pas pu être effectué");
@@ -153,7 +154,7 @@ function Payment({ history }) {
     };
 
     dispatch(createOrder(order));
-
+    dispatch(clearCart());
     history.push("/success");
     // Congratulation, it came here means everything's fine!
     console.log("The payment was succeeded!");

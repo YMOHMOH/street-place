@@ -157,17 +157,19 @@ function ProductDetails({ match }) {
 
             <div className="col-12 col-lg-5 mt-5">
               <h3>{product.name}</h3>
-              <p id="product_id">Produit # {product._id}</p>
+              {/* <p id="product_id">Produit # {product._id}</p> */}
 
               <hr />
+              <a href="#reviews" style={{ cursor: "pointer" }}>
+                <div className="rating-outer">
+                  <div
+                    className="rating-inner"
+                    style={{ width: `${(product.ratings / 5) * 100}%` }}
+                  ></div>
+                </div>
 
-              <div className="rating-outer">
-                <div
-                  className="rating-inner"
-                  style={{ width: `${(product.ratings / 5) * 100}%` }}
-                ></div>
-              </div>
-              <span id="no_of_reviews">({product.numOfReviews} Comm)</span>
+                <span id="no_of_reviews">({product.numOfReviews} Comm)</span>
+              </a>
 
               <hr />
 

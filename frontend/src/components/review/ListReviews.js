@@ -3,7 +3,7 @@ import React from "react";
 
 function ListReviews({ reviews }) {
   return (
-    <div className="reviews w-75">
+    <div className="reviews w-75" id="reviews">
       <h3>Avis :</h3>
       <hr />
       {reviews &&
