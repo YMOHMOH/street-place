@@ -49,7 +49,7 @@ function UpdatePassword({ history }) {
           <form className="shadow-lg" onSubmit={submitHandler}>
             <h1 className="mt-2 mb-5">Changer le mot de passe</h1>
             <div className="form-group">
-              <label for="old_password_field">Mot de passe actuel</label>
+              <label htmlFor="old_password_field">Mot de passe actuel</label>
               <input
                 type="password"
                 id="old_password_field"
@@ -60,7 +60,7 @@ function UpdatePassword({ history }) {
             </div>
 
             <div className="form-group">
-              <label for="new_password_field">Nouveau mot de passe</label>
+              <label htmlFor="new_password_field">Nouveau mot de passe</label>
               <input
                 type="password"
                 id="new_password_field"
