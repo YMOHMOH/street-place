@@ -171,7 +171,6 @@ function Home({ match }) {
                   );
                 })
               )}*/}
-              {console.log(products)}
               {products &&
                 products.map((product) => {
                   return (
