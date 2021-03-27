@@ -174,7 +174,7 @@ function Home({ match }) {
               {products &&
                 products.map((product) => {
                   return (
-                    <Product key={product._id} product={product} col={3} />
+                    <Product key={product._id} product={product} col={4} />
                   );
                 })}
             </div>
