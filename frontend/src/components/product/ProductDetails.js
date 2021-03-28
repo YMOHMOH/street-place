@@ -148,6 +148,12 @@ function ProductDetails({ match }) {
                           className="d-block w-100"
                           src={image.url}
                           alr={product.title}
+                          style={{
+                            width: "28rem",
+                            height: "40rem",
+                            objectFit: "cover",
+                            objectPosition: "top",
+                          }}
                         />
                       </Carousel.Item>
                     );
