@@ -30,6 +30,12 @@
     />
     
     <title>StreetPlace</title>
+    <script>
+      var host = "www.streetplace.fr" || "streetplace.fr";
+      if ((host == window.location.host) && (window.location.protocol != "https:")){
+      window.location.protocol = "https";
+      }
+      </script>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
