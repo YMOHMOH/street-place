@@ -7,6 +7,7 @@ const bodyParser = require("body-parser");
 const fileUpload = require("express-fileupload");
 const path = require("path");
 const cors = require("cors");
+var enforce = require("express-sslify");
 
 const errorMiddleware = require("./middlewares/errors");
 
@@ -19,6 +20,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use(cors());
 app.use(fileUpload());
+app.use(enforce.HTTPS());
 
 //Import all routes
 const products = require("./routes/product");
