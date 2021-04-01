@@ -29,7 +29,7 @@ function Product({ product, col, oldPrice }) {
                   fontWeight: 300,
                 }}
               >
-                {oldPrice}€
+                {oldPrice} €
               </span>{" "}
               <span
                 style={{
