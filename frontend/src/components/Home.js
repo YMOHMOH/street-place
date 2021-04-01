@@ -172,7 +172,17 @@ function Home({ match }) {
                 })
               )}*/}
               {products &&
-                products.map((product) => {
+                products.map((product, index) => {
+                  if (index === 0) {
+                    return (
+                      <Product
+                        key={product._id}
+                        product={product}
+                        col={4}
+                        oldPrice={59.99}
+                      />
+                    );
+                  }
                   return (
                     <Product key={product._id} product={product} col={4} />
                   );
