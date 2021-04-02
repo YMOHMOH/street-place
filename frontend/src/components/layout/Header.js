@@ -54,7 +54,8 @@ function Header() {
           <Route render={({ history }) => <Search history={history} />} />
         </div> */}
 
-        <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
+        <div className="col-12 col-md-3 mb-1 mt-md-0 text-center">
+          {/* mt-4 */}
           <Link to="/cart" style={{ textDecoration: "none" }}>
             <span id="cart" className="ml-3">
               Panier
