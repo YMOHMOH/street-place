@@ -24,15 +24,16 @@ function Header() {
   return (
     <Fragment>
       <nav
-        className="navbar row"
+        className="navbar "
+        // row
         style={{
-          // display: "flex",
-          // justifyContent: "center",
-          // alignItems: "center",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
           padding: "0rem 1rem",
         }}
       >
-        <div className="col-12 col-md-3">
+        {/* <div className="col-12 col-md-3">
           <div
             className="navbar-brand"
             style={{
@@ -40,24 +41,22 @@ function Header() {
               justifyContent: "center",
               alignItems: "center",
             }}
-          >
-            <Link to="/">
-              <img
-                src="/images/streetplace_logo.png"
-                style={{ height: "80px" }}
-              />
-            </Link>
-          </div>
-        </div>
+          > */}
+        <Link to="/">
+          <img src="/images/streetplace_logo.png" style={{ height: "80px" }} />
+        </Link>
+        {/* </div>
+        </div> */}
 
         {/* <div className="col-12 col-md-6 mt-2 mt-md-0">
           <Route render={({ history }) => <Search history={history} />} />
         </div> */}
 
-        <div className="col-12 col-md-3 mb-1 mt-md-0 text-center">
-          {/* mt-4 */}
+        <div>
+          {/* className="col-12 col-md-3 mb-1 mt-md-0 " mt-4 text-center*/}
           <Link to="/cart" style={{ textDecoration: "none" }}>
-            <span id="cart" className="ml-3">
+            <span className="ml-2" id="cart">
+              {/* className="ml-3" */}
               Panier
             </span>
             <span className="ml-1" id="cart_count">
@@ -65,7 +64,8 @@ function Header() {
             </span>
           </Link>
           {user ? (
-            <div className="ml-4 dropdown d-inline">
+            <div className="ml-2 dropdown d-inline">
+              {/* ml-4 */}
               <Link
                 to="#!"
                 className="btn dropdown-toggle text-white mr-4"
