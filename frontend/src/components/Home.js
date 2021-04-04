@@ -173,7 +173,7 @@ function Home({ match }) {
               )}*/}
               {products &&
                 products.map((product, index) => {
-                  if (index === 0) {
+                  if (product.name === "Sons Puffer One") {
                     return (
                       <Product
                         key={product._id}
