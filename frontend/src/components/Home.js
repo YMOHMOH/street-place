@@ -180,6 +180,7 @@ function Home({ match }) {
                         product={product}
                         col={4}
                         oldPrice={59.99}
+                        promo={true}
                       />
                     );
                   }

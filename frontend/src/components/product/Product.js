@@ -1,10 +1,28 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Product({ product, col, oldPrice }) {
+function Product({ product, col, oldPrice, promo }) {
   return (
     <div className={`col-sm-12 col-md-6 col-lg-${col} my-3`}>
-      <div className="card p-3 rounded">
+      <div className="card p-3 rounded" style={{ position: "relative" }}>
+        {promo && (
+          <div
+            style={{
+              position: "absolute",
+              top: "0",
+              left: "0",
+              width: "80px",
+              height: "30px",
+              fontWeight: "bold",
+              color: "white",
+              background: "#fa9c23",
+              textAlign: "center",
+            }}
+          >
+            Promo
+          </div>
+        )}
+
         <img className="card-img-top mx-auto" src={product.images[0].url} />
         <div className="card-body d-flex flex-column">
           <h5 className="card-title">
