@@ -184,6 +184,37 @@ function Home({ match }) {
                       />
                     );
                   }
+                  if (
+                    product.name === "Hoodies Massa" ||
+                    product.name === "Hoodies Massa White" ||
+                    product.name === "Hoodies Massa Rouge - unisexe" ||
+                    product.name === "Hoodies Massa Gris - unisexe" ||
+                    product.name === "Urban"
+                  ) {
+                    return (
+                      <Product
+                        key={product._id}
+                        product={product}
+                        col={4}
+                        oldPrice={49.99}
+                        promo={true}
+                      />
+                    );
+                  }
+                  if (
+                    product.name === "Signature - unisexe" ||
+                    product.name === "Signature Kaki - unisexe"
+                  ) {
+                    return (
+                      <Product
+                        key={product._id}
+                        product={product}
+                        col={4}
+                        oldPrice={29.99}
+                        promo={true}
+                      />
+                    );
+                  }
                   return (
                     <Product key={product._id} product={product} col={4} />
                   );
