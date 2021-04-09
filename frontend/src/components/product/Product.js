@@ -12,7 +12,7 @@ function Product({ product, col, oldPrice, promo }) {
               top: "0",
               left: "0",
               width: "80px",
-              height: "30px",
+              lineHeight: "30px",
               fontWeight: "bold",
               color: "white",
               background: "#fa9c23",
