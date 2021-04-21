@@ -173,6 +173,19 @@ function Home({ match }) {
               )}*/}
               {products &&
                 products.map((product, index) => {
+                  if (
+                    product.name === "Hoodies Massa" ||
+                    product.name === "Signature Kaki - unisexe"
+                  ) {
+                    return (
+                      <Product
+                        key={product._id}
+                        product={product}
+                        col={4}
+                        outOfStock={true}
+                      />
+                    );
+                  }
                   if (product.name === "Sons Puffer One") {
                     return (
                       <Product
@@ -185,7 +198,6 @@ function Home({ match }) {
                     );
                   }
                   if (
-                    product.name === "Hoodies Massa" ||
                     product.name === "Hoodies Massa White" ||
                     product.name === "Hoodies Massa Rouge - unisexe" ||
                     product.name === "Hoodies Massa Gris - unisexe" ||

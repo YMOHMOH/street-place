@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Product({ product, col, oldPrice, promo }) {
+function Product({ product, col, oldPrice, promo, outOfStock }) {
   return (
     <div className={`col-sm-12 col-md-6 col-lg-${col} my-3`}>
       <div className="card p-3 rounded" style={{ position: "relative" }}>
@@ -23,20 +23,53 @@ function Product({ product, col, oldPrice, promo }) {
           </div>
         )}
 
+        {outOfStock && (
+          <>
+            <div
+              style={{
+                position: "absolute",
+                top: "0",
+                left: "0",
+                width: "100%",
+                height: "100%",
+                background: "#000",
+                opacity: "0.5",
+              }}
+            ></div>
+            <div
+              style={{
+                position: "absolute",
+                top: "50%",
+                left: "0",
+                width: "100%",
+                lineHeight: "50px",
+                fontWeight: "bold",
+                color: "white",
+                background: "#fa9c23",
+                textAlign: "center",
+              }}
+            >
+              Rupture
+            </div>
+          </>
+        )}
+
         <img className="card-img-top mx-auto" src={product.images[0].url} />
         <div className="card-body d-flex flex-column">
           <h5 className="card-title">
             <Link to={`/product/${product._id}`}>{product.name}</Link>
           </h5>
-          <div className="ratings mt-auto">
-            <div className="rating-outer">
-              <div
-                className="rating-inner"
-                style={{ width: `${(product.ratings / 5) * 100}%` }}
-              ></div>
+          {!outOfStock && (
+            <div className="ratings mt-auto">
+              <div className="rating-outer">
+                <div
+                  className="rating-inner"
+                  style={{ width: `${(product.ratings / 5) * 100}%` }}
+                ></div>
+              </div>
+              <span id="no_of_reviews">({product.numOfReviews} Comm)</span>
             </div>
-            <span id="no_of_reviews">({product.numOfReviews} Comm)</span>
-          </div>
+          )}
 
           {oldPrice ? (
             <p className="card-text">
@@ -61,14 +94,15 @@ function Product({ product, col, oldPrice, promo }) {
           ) : (
             <p className="card-text">{product.price} €</p>
           )}
-
-          <Link
-            to={`/product/${product._id}`}
-            id="view_btn"
-            className="btn btn-block"
-          >
-            Voir les détails
-          </Link>
+          {!outOfStock && (
+            <Link
+              to={`/product/${product._id}`}
+              id="view_btn"
+              className="btn btn-block"
+            >
+              Voir les détails
+            </Link>
+          )}
         </div>
       </div>
     </div>
