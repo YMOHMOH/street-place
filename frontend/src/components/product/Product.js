@@ -49,7 +49,7 @@ function Product({ product, col, oldPrice, promo, outOfStock }) {
                 textAlign: "center",
               }}
             >
-              Rupture
+              Victime de son succès
             </div>
           </>
         )}
