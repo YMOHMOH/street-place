@@ -175,7 +175,8 @@ function Home({ match }) {
                 products.map((product, index) => {
                   if (
                     product.name === "Hoodies Massa" ||
-                    product.name === "Signature Kaki - unisexe"
+                    product.name === "Signature Kaki - unisexe" ||
+                    product.name === "Casquette Sons of Street Capitale"
                   ) {
                     return (
                       <Product
