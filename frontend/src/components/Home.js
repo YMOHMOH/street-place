@@ -176,7 +176,8 @@ function Home({ match }) {
                   if (
                     product.name === "Hoodies Massa" ||
                     product.name === "Signature Kaki - unisexe" ||
-                    product.name === "Casquette Sons of Street Capitale"
+                    product.name === "Casquette Sons of Street Capitale" ||
+                    product.name === "Hoodies Massa Rouge - unisexe"
                   ) {
                     return (
                       <Product
